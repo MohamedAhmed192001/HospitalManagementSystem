@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace HospitalManagementSystem.Domain.Enums
 {
-    internal class DoctorSpecialization
+    public enum DoctorSpecialization
     {
+        General = 1,
+        Cardiology = 2,
+        Neurology = 3,
+        Orthopedics = 4,
+        Pediatrics = 5,
+        Dermatology = 6,
+        Ophthalmology = 7
     }
 }

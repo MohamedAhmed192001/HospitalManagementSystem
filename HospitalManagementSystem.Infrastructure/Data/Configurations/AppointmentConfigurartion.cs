@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HospitalManagementSystem.Domain.Enums
+namespace HospitalManagementSystem.Infrastructure.Data.Configurations
 {
-    public enum Gender
+    internal class AppointmentConfigurartion
     {
-        Male = 1,
-        Female = 2
     }
 }
