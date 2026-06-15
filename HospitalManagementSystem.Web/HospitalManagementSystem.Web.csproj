@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="14.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HospitalManagementSystem.Application\HospitalManagementSystem.Application.csproj" />
     <ProjectReference Include="..\HospitalManagementSystem.ServiceDefaults\HospitalManagementSystem.ServiceDefaults.csproj" />
   </ItemGroup>
 

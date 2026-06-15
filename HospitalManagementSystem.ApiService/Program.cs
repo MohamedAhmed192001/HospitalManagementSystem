@@ -1,3 +1,6 @@
+using HospitalManagementSystem.ApiService.Infrastructure;
+using HospitalManagementSystem.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add service defaults & Aspire client integrations.
@@ -6,7 +9,20 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddProblemDetails();
 
+ builder.Services.AddEndpointsApiExplorer();
+
+ builder.Services.AddSwaggerGen();
+
+// Add infrastructure services.
+builder.AddInfrastructureServices();
+
 var app = builder.Build();
+
+if(app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 // Configure the HTTP request pipeline.
 app.UseExceptionHandler();
@@ -27,7 +43,11 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
+app.MapEndpoints(typeof(Program).Assembly);
+
 app.MapDefaultEndpoints();
+
+
 
 app.Run();
 

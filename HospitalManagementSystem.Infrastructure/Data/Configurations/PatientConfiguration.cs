@@ -13,7 +13,32 @@ namespace HospitalManagementSystem.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Patient> builder)
         {
-            
+            builder.Property(p => p.FirstName)
+            .HasMaxLength(100)
+            .IsRequired();
+
+            builder.Property(p => p.LastName)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            builder.Property(p => p.Email)
+                .HasMaxLength(200)
+                .IsRequired();
+
+            builder.Property(p => p.PhoneNumber)
+                .HasMaxLength(20)
+                .IsRequired();
+
+            builder.Property(p => p.Gender)
+                .IsRequired();
+
+            builder.Property( p => p.DateOfBirth)
+                .IsRequired();
+
+            builder.HasMany(p => p.Appointments)
+                .WithOne(a => a.Patient)
+                .HasForeignKey(p => p.PatientId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

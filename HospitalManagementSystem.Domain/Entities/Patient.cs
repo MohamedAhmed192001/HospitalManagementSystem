@@ -1,4 +1,5 @@
-﻿using HospitalManagementSystem.Domain.Enums;
+﻿using HospitalManagementSystem.Domain.Common;
+using HospitalManagementSystem.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HospitalManagementSystem.Domain.Entities
 {
-    public class Patient
+    public class Patient : BaseAuditableEntity
     {
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
