@@ -1,4 +1,5 @@
 using HospitalManagementSystem.ApiService.Infrastructure;
+using HospitalManagementSystem.Application;
 using HospitalManagementSystem.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,16 +12,20 @@ builder.Services.AddProblemDetails();
 
  builder.Services.AddEndpointsApiExplorer();
 
- builder.Services.AddSwaggerGen();
+builder.Services.AddOpenApiDocument();
 
-// Add infrastructure services.
+// Add Infrastructure services.
 builder.AddInfrastructureServices();
+
+
+// Add Application services.
+builder.AddApplicationServices();
 
 var app = builder.Build();
 
 if(app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+    app.UseOpenApi();
     app.UseSwaggerUI();
 }
 
@@ -43,7 +48,7 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
-app.MapEndpoints(typeof(Program).Assembly);
+app.MapEndpoints();
 
 app.MapDefaultEndpoints();
 

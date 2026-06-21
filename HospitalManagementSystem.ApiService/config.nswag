@@ -1,0 +1,22 @@
+﻿{
+  "runtime": "Net80",
+  "documentGenerator": {
+    "aspNetCoreToOpenApi": {
+      "project": "./HospitalManagementSystem.ApiService.csproj",
+      "noBuild": true
+    }
+  },
+
+  //"codeGenerators": {
+  //  "openApiToTypeScriptClient": {
+  //    "template": "Angular",
+  //    "className": "{controller}Client",
+  //    "output": "../HospitalManagementSystem.Web/src/app/api-clients/api-client.ts",
+  //    "typeScriptVersion": 4.9,
+  //    "generateClientClasses": true,
+  //    "generateDtoTypes": true,
+  //    "useTransformOptionsMethod": true,
+  //    "injectHttpClient": true
+  //  }
+  //}
+}
