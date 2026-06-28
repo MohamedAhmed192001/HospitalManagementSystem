@@ -1,5 +1,6 @@
 ﻿using HospitalManagementSystem.Domain.Common;
 using HospitalManagementSystem.Domain.Enums;
+using HospitalManagementSystem.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,10 @@ namespace HospitalManagementSystem.Domain.Entities
         public string PhoneNumber { get; set; } = string.Empty;
         public DoctorSpecialization Specialization { get; set; }
         public bool IsAvailable { get; set; }
+
+        public Address Address { get; set; } = null!;
+        public WorkingHours WorkingHours { get; set; } = null!;
+
 
         public ICollection<Appointment> Appointments { get; private set; } = new List<Appointment>();   
 

@@ -1,5 +1,6 @@
 ﻿using HospitalManagementSystem.Domain.Common;
 using HospitalManagementSystem.Domain.Enums;
+using HospitalManagementSystem.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace HospitalManagementSystem.Domain.Entities
             AppointmentStatus.Pending;
 
         public string? Notes { get; set; } = string.Empty;
+
+        public TimeRange TimeRange { get; private set; } = null!;
 
     }
 }

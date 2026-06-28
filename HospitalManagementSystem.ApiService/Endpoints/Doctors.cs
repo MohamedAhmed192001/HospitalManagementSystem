@@ -2,7 +2,6 @@
 using HospitalManagementSystem.Application.Doctors.Commands.CreateDoctor;
 using HospitalManagementSystem.Application.Doctors.Commands.UpdateDoctor;
 using MediatR;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http.HttpResults;
 
 
@@ -14,8 +13,7 @@ namespace HospitalManagementSystem.ApiService.Endpoints
         {
             groupBuilder.MapGroup(this)
                 .MapPost(CreateDoctor)
-                .MapPut(UpdateDoctor, "{id}")
-                   ;
+                .MapPut(UpdateDoctor, "{id}");
         }
 
         public static async Task<Created<int>> CreateDoctor(ISender sender, CreateDoctorCommand command)
@@ -33,7 +31,5 @@ namespace HospitalManagementSystem.ApiService.Endpoints
 
             return TypedResults.NoContent();
         }
-
-       
     }
 }

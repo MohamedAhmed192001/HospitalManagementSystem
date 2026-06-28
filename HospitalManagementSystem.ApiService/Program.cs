@@ -10,14 +10,12 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddProblemDetails();
 
- builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddOpenApiDocument();
 
 // Add Infrastructure services.
 builder.AddInfrastructureServices();
-
-
 // Add Application services.
 builder.AddApplicationServices();
 

@@ -37,6 +37,47 @@ namespace HospitalManagementSystem.Infrastructure.Data.Configurations
                 .HasForeignKey(a => a.DoctorId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+
+            builder.OwnsOne(d => d.Address, address =>
+            {
+                address.Property(a => a.Street)
+                .HasColumnName("Street")
+                .HasMaxLength(200)
+                .IsRequired();
+
+                address.Property(a => a.City)
+                .HasColumnName("City")
+                .HasMaxLength(100)
+                .IsRequired();
+
+                address.Property(a => a.Governorate)
+                .HasColumnName("Governorate")
+                .HasMaxLength(100)
+                .IsRequired();
+
+                address.Property(a => a.Country)
+                .HasColumnName("Country")
+                .HasMaxLength(100)
+                .IsRequired();
+
+                address.Property(a => a.PostalCode)
+                .HasColumnName("PostalCode")
+                .HasMaxLength(20)
+                .IsRequired();
+            });
+
+
+            builder.OwnsOne(d => d.WorkingHours, workingHours =>
+            {
+                workingHours.Property(w => w.StartTime)
+                .HasColumnName("WorkingHoursStartTime")
+                .IsRequired();
+
+                workingHours.Property(w => w.EndTime)
+               .HasColumnName("WorkingHoursEndTime")
+               .IsRequired();
+            });
+
         }
     }
 }

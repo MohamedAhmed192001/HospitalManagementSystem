@@ -27,6 +27,21 @@ namespace HospitalManagementSystem.Infrastructure.Data.Configurations
                 .WithMany(p => p.Appointments)
                 .HasForeignKey(p => p.PatientId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+
+            builder.OwnsOne(a => a.TimeRange, timeRange =>
+                {
+                    timeRange.Property(t => t.StartTime)
+                    .HasColumnName("StartTime")
+                    .IsRequired();
+
+                    timeRange.Property(t => t.EndTime)
+                   .HasColumnName("EndTime")
+                   .IsRequired();
+
+                }
+            );
+                
         }
     }
 }
